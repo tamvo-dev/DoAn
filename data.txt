@@ -1,0 +1,10 @@
+1 1 1 1 1 1949 Le$Mot$Cong ty phan bon Ninh Binh$GD
+2 1 1 1 1 1999 Le$Hai$Cong ty phan bon Ninh Binh$PGD
+3 1 1 1 1 1988 Le$Ba$Cong ty phan bon Ninh Binh$TP
+4 0 1 1 1 1989 Le$Bon$Cong ty phan bon Ninh Binh$PP
+5 1 1 1 1 1945 Le$Nam$Cong ty phan bon Ninh Binh$NV
+6 1 1 1 1 1972 Le$Sau$Cong ty phan bon Ninh Binh$NV
+7 0 1 1 1 1999 Le$Bay$Cong ty phan bon Ninh Binh$PP
+8 0 1 1 1 1943 Le$Tam$Cong ty phan bon Ninh Binh$NV
+9 1 1 1 1 1953 Le$Chin$Cong ty phan bon Ninh Binh$NV
+10 1 1 1 1 1969 Le$Muoi$Cong ty phan bon Ninh Binh$TP
