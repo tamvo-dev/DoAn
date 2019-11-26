@@ -10,12 +10,13 @@ int ListSize = 0;
 
 
 void readFile();
+void writeFile();
 void addNhanVien(NhanVien& nv);
+void showNhanVien(NhanVien nv);
 void showListNhanVien();
 void remove(int position);
 void menu();
 void formatData(char *s);
-void writeFile();
 void sortAscending();
 void sortDescending();
 int searchMSNV(int msnv);
@@ -97,7 +98,12 @@ void sortDescending()
 
 int searchMSNV(int msnv)
 {
-	return 0;
+	for (int i = 0; i < ListSize; i++) {
+		if (ListData[i].maNhanVien == msnv) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 int searchName(char* s)
@@ -258,7 +264,16 @@ void TimKiemNhanVien()
 	
 	if (select == 1)
 	{
-
+		int msnv = 0;
+		cout << "Nhap ma nhan vien: ";
+		cin >> msnv;
+		int position = searchMSNV(msnv);
+		if (position == -1) {
+			cout << "Khong tim thay!" << endl;
+		}
+		else {
+			showNhanVien(ListData[position]);
+		}
 	}
 	else
 	{
@@ -272,7 +287,7 @@ void TimKiemNhanVien()
 			cout << "Khong tim thay!" << endl;
 		}
 		else {
-			cout << "Ho va ten: " << ListData[position].ho << " " << ListData[position].ten << endl;
+			showNhanVien(ListData[position]);
 		}
 	}
 	system("pause");
@@ -452,4 +467,18 @@ void addNhanVien(NhanVien& nv) {
 		ListSize++;
 		delete[] temp;
 	}
+}
+
+void showNhanVien(NhanVien nv)
+{
+	cout << "Ho va ten: " << nv.ho << " " << nv.ten << endl;
+	cout << "Ma nhan vien: " << nv.maNhanVien << endl;
+	cout << "Ngay sinh: " << nv.ngaySinh.ngay << "/" << nv.ngaySinh.thang << "/" << nv.ngaySinh.nam << endl;
+	cout << "Gioi tinh: " << (nv.gioiTinh ? "Nam" : "Nu") << endl;
+	cout << "Don vi: " << nv.donVi << endl;
+	cout << "Chuc vu: " << nv.chucVu << endl;
+	cout << "He so luong: " << nv.heSoLuong << endl;
+	cout << "Luong: " << nv.luong << endl;
+	cout << "Phu cap: " << nv.phuCap << endl;
+	cout << "Thuc linh: " << nv.thucLinh << endl;
 }
