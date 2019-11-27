@@ -7,4 +7,4 @@
 7 0 1 1 1 1999 Le$Bay$Cong ty phan bon Ninh Binh$PP
 8 0 1 1 1 1943 Le$Tam$Cong ty phan bon Ninh Binh$NV
 9 1 1 1 1 1953 Le$Chin$Cong ty phan bon Ninh Binh$NV
-10 1 1 1 1 1969 Le$Muoi$Cong ty phan bon Ninh Binh$TP
+11 1 1 1 1 1969 Le$Muoi$Cong ty phan bon Ninh Binh$TP

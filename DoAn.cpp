@@ -4,7 +4,11 @@
 #include <iomanip>
 using namespace std;
 
+const int SEARCH_AS = 1;
+const int SEARCH_DES = 2;
 
+
+int searchType = 0;
 NhanVien* ListData = NULL;
 int ListSize = 0;
 
@@ -12,6 +16,7 @@ int ListSize = 0;
 void readFile();
 void writeFile();
 void addNhanVien(NhanVien& nv);
+NhanVien& newNhanVien();
 void showNhanVien(NhanVien nv);
 void showListNhanVien();
 void remove(int position);
@@ -72,6 +77,8 @@ void writeFile() {
 
 void sortAscending()
 {
+	searchType = SEARCH_AS;
+
 	for (int i = 0; i < ListSize; i++) {
 		for (int j = i+1; j < ListSize; j++) {
 			if (ListData[i].maNhanVien > ListData[j].maNhanVien) {
@@ -85,6 +92,8 @@ void sortAscending()
 
 void sortDescending()
 {
+	searchType = SEARCH_DES;
+
 	for (int i = 0; i < ListSize; i++) {
 		for (int j = i + 1; j < ListSize; j++) {
 			if (ListData[i].maNhanVien < ListData[j].maNhanVien) {
@@ -169,7 +178,7 @@ void menu() {
 			SapXepNhanVien();
 			break;
 		case 5:
-			//ChenNhanVien();
+			ChenNhanVien();
 			break;
 		case 6:
 			XoaNhanVien();
@@ -212,32 +221,7 @@ void InDanhSach()
 void BoSungNhanVien()
 {
 	system("cls");
-	NhanVien nv;
-	cout << "Nhap ma nhan vien: ";
-	cin >> nv.maNhanVien;
-	cout << "Nhap gioi tinh(1.Nam - 0.Nu): ";
-	cin >> nv.gioiTinh;
-	cout << "Nhap he so luong: ";
-	cin >> nv.heSoLuong;
-	cout << "Nhap ngay sinh: ";
-	cin >> nv.ngaySinh.ngay;
-	cout << "Nhap thang sinh: ";
-	cin >> nv.ngaySinh.thang;
-	cout << "Nhap nam sinh: ";
-	cin >> nv.ngaySinh.nam;
-	cin.ignore();
-	cout << "Nhap ho nhan vien: ";
-	fgets(nv.ho, 30, stdin);
-	formatData(nv.ho);
-	cout << "Nhap ten nhan vien: ";
-	fgets(nv.ten, 30, stdin);
-	formatData(nv.ten);
-	cout << "Nhap don vi: ";
-	fgets(nv.donVi, 30, stdin);
-	formatData(nv.donVi);
-	cout << "Nhap chuc vu: ";
-	fgets(nv.chucVu, 30, stdin);
-	formatData(nv.chucVu);
+	NhanVien nv = newNhanVien();
 
 	for (int i = 0; i < ListSize; i++) {
 		if (ListData[i].maNhanVien == nv.maNhanVien) {
@@ -319,6 +303,65 @@ void SapXepNhanVien()
 
 void ChenNhanVien()
 {
+	system("cls");
+	NhanVien nv = newNhanVien();
+
+	NhanVien *temp = new NhanVien[ListSize];
+	for (int i = 0; i < ListSize; i++) {
+		temp[i] = ListData[i];
+	}
+
+	if (searchType == SEARCH_AS) {
+		int index = 0;
+		for (int i = 0; i < ListSize; i++) {
+			if (nv.maNhanVien < ListData[i].maNhanVien) {
+				index = i;
+				break;
+			}
+
+		}
+		delete[] ListData;
+		ListData = new NhanVien[ListSize + 1];
+
+		for (int i = 0; i < index; i++) {
+			ListData[i] = temp[i];
+		}
+		ListData[index] = nv;
+		for (int i = index; i < ListSize; i++) {
+			ListData[i + 1] = temp[i];
+		}
+		ListSize++;
+	}
+	else if (searchType == SEARCH_DES) {
+		int index = 0;
+		for (int i = 0; i < ListSize; i++) {
+			if (nv.maNhanVien > ListData[i].maNhanVien) {
+				index = i;
+				break;
+			}
+
+		}
+		delete[] ListData;
+		ListData = new NhanVien[ListSize + 1];
+
+		for (int i = 0; i < index; i++) {
+			ListData[i] = temp[i];
+		}
+		ListData[index] = nv;
+		for (int i = index; i < ListSize; i++) {
+			ListData[i + 1] = temp[i];
+		}
+		ListSize++;
+	}
+	else {
+		cout << "Ban phai sap xep truoc khi chen!";
+		delete[] temp;
+		system("pause");
+		return;
+	}
+	delete[] temp;
+	cout << "Da chen thanh cong!" << endl;
+	system("pause");
 }
 
 void XoaNhanVien()
@@ -467,6 +510,38 @@ void addNhanVien(NhanVien& nv) {
 		ListSize++;
 		delete[] temp;
 	}
+}
+
+NhanVien& newNhanVien()
+{
+	NhanVien nv;
+	rewind(stdin);
+	cout << "Nhap ma nhan vien: ";
+	cin >> nv.maNhanVien;
+	cout << "Nhap gioi tinh(1.Nam - 0.Nu): ";
+	cin >> nv.gioiTinh;
+	cout << "Nhap he so luong: ";
+	cin >> nv.heSoLuong;
+	cout << "Nhap ngay sinh: ";
+	cin >> nv.ngaySinh.ngay;
+	cout << "Nhap thang sinh: ";
+	cin >> nv.ngaySinh.thang;
+	cout << "Nhap nam sinh: ";
+	cin >> nv.ngaySinh.nam;
+	cin.ignore();
+	cout << "Nhap ho nhan vien: ";
+	fgets(nv.ho, 30, stdin);
+	formatData(nv.ho);
+	cout << "Nhap ten nhan vien: ";
+	fgets(nv.ten, 30, stdin);
+	formatData(nv.ten);
+	cout << "Nhap don vi: ";
+	fgets(nv.donVi, 30, stdin);
+	formatData(nv.donVi);
+	cout << "Nhap chuc vu: ";
+	fgets(nv.chucVu, 30, stdin);
+	formatData(nv.chucVu);
+	return nv;
 }
 
 void showNhanVien(NhanVien nv)
