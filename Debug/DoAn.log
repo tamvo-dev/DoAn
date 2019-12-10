@@ -1,4 +1,6 @@
 ﻿  DoAn.cpp
-C:\Users\LAptop\source\repos\DoAn\DoAn\DoAn.cpp(482,33): warning C4101: 'e': unreferenced local variable
-C:\Users\LAptop\source\repos\DoAn\DoAn\DoAn.cpp(544): warning C4172: returning address of local variable or temporary: nv
+C:\Users\LAptop\source\repos\DoAn\DoAn\DoAn.cpp(441,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\LAptop\source\repos\DoAn\DoAn\DoAn.cpp(445,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\LAptop\source\repos\DoAn\DoAn\DoAn.cpp(626,33): warning C4101: 'e': unreferenced local variable
+C:\Users\LAptop\source\repos\DoAn\DoAn\DoAn.cpp(688): warning C4172: returning address of local variable or temporary: nv
   DoAn.vcxproj -> C:\Users\LAptop\source\repos\DoAn\Debug\DoAn.exe
