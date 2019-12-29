@@ -65,9 +65,9 @@ void writeFile() {
 		fileOutput << ListData[i].ngaySinh.ngay << " ";
 		fileOutput << ListData[i].ngaySinh.thang << " ";
 		fileOutput << ListData[i].ngaySinh.nam << " ";
-		fileOutput << ListData[i].ho << "$";
-		fileOutput << ListData[i].ten << "$";
-		fileOutput << ListData[i].donVi << "$";
+		fileOutput << ListData[i].ho << ",";
+		fileOutput << ListData[i].ten << ",";
+		fileOutput << ListData[i].donVi << ",";
 		fileOutput << ListData[i].chucVu;
 		if (i != ListSize - 1) {
 			fileOutput << endl;
@@ -575,22 +575,8 @@ void showListNhanVien() {
 		cout << setw(10) << left << ListData[i].phuCap;
 		cout << setw(10) << left << (int)ListData[i].thucLinh << endl;
 	}
-
-	//	for (int i = 0; i < ListSize; i++) {
-	//		cout << endl;
-	//		cout << "Ho va ten: " << ListData[i].ho << " " << ListData[i].ten << endl;
-	//		cout << "Ma nhan vien: " << ListData[i].maNhanVien << endl;
-	//		cout << "Ngay sinh: " << ListData[i].ngaySinh.ngay << "/" << ListData[i].ngaySinh.thang << "/" << ListData[i].ngaySinh.nam << endl;
-	//		cout << "Gioi tinh: " << (ListData[i].gioiTinh ? "Nam" : "Nu") << endl;
-	//		cout << "Don vi: " << ListData[i].donVi << endl;
-	//		cout << "Chuc vu: " << ListData[i].chucVu << endl;
-	//		cout << "He so luong: " << ListData[i].heSoLuong << endl;
-	//		cout << "Luong: " << ListData[i].luong << endl;
-	//		cout << "Phu cap: " << ListData[i].phuCap << endl;
-	//		cout << "Thuc linh: " << ListData[i].thucLinh << endl;
-	//
-	//	}
-	}
+	
+}
 
 void readFile() {
 	ifstream fileInput("data.txt");
@@ -606,7 +592,7 @@ void readFile() {
 	while (!fileInput.eof()) {
 		try
 		{
-			//1 1 1 1 1 1999 Vo$Van Mot$Cong ty phan bon Ninh Binh$GD
+			//1 1 1 1 1 1999 Vo,Van Mot,Tai Chinh,GD
 			NhanVien nv;
 
 			fileInput >> nv.maNhanVien;
@@ -616,9 +602,9 @@ void readFile() {
 			fileInput >> nv.ngaySinh.thang;
 			fileInput >> nv.ngaySinh.nam;
 
-			fileInput.getline(nv.ho, 30, '$');
-			fileInput.getline(nv.ten, 30, '$');
-			fileInput.getline(nv.donVi, 30, '$');
+			fileInput.getline(nv.ho, 30, ',');
+			fileInput.getline(nv.ten, 30, ',');
+			fileInput.getline(nv.donVi, 30, ',');
 			fileInput.getline(nv.chucVu, 30);
 
 			addNhanVien(nv);
