@@ -1,10 +1,10 @@
-1 1 1 1 1 1949 Le$Mot$Cong ty phan bon Ninh Binh$GD
-2 1 1 1 1 1999 Le$Hai$Cong ty phan bon Ninh Binh$PGD
-3 1 1 1 1 1988 Le$Ba$Cong ty phan bon Ninh Binh$TP
-4 0 1 1 1 1989 Le$Bon$Cong ty phan bon Ninh Binh$PP
-5 1 1 1 1 1945 Le$Nam$Cong ty phan bon Ninh Binh$NV
-6 1 1 1 1 1972 Le$Sau$Cong ty phan bon Ninh Binh$NV
-7 0 1 1 1 1999 Le$Bay$Cong ty phan bon Ninh Binh$PP
-8 0 1 1 1 1943 Le$Tam$Cong ty phan bon Ninh Binh$NV
-9 1 1 1 1 1953 Le$Chin$Cong ty phan bon Ninh Binh$NV
-11 1 1 1 1 1969 Le$Muoi$Cong ty phan bon Ninh Binh$TP
+1 1 1.5 12 10 1965 Le,Mot,Hanh Chinh,GD
+2 1 1.2 15 11 1979 Le,Hai,Tai Chinh,PGD
+3 1 1.5 21 5 1968 Le,Ba,Tai Chinh,TP
+4 0 1.3 23 10 1969 Le,Bon,Van Phong,PP
+5 1 1.5 16 1 1966 Le,Nam,Ke Toan,NV
+6 1 1.3 10 12 1972 Le,Sau,Hanh Chinh,NV
+7 0 1.2 17 10 1968 Le,Bay,Tai Chinh,PP
+8 0 1.0 18 7 1970 Le,Tam,Nhan Su,NV
+9 1 1.1 15 6 1953 Le,Chin,Ke Toan,NV
+10 1 1.5 16 5 1969 Le,Muoi,Van Phong,TP
