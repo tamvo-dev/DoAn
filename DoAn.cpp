@@ -48,7 +48,7 @@ int main() {
 
 
 void writeFile() {
-	ofstream fileOutput("output.txt");
+	ofstream fileOutput("data.txt");
 
 	if (fileOutput.fail())
 	{
@@ -63,9 +63,9 @@ void writeFile() {
 		fileOutput << ListData[i].ngaySinh.ngay << " ";
 		fileOutput << ListData[i].ngaySinh.thang << " ";
 		fileOutput << ListData[i].ngaySinh.nam << " ";
-		fileOutput << ListData[i].ho << "$";
-		fileOutput << ListData[i].ten << "$";
-		fileOutput << ListData[i].donVi << "$";
+		fileOutput << ListData[i].ho << ",";
+		fileOutput << ListData[i].ten << ",";
+		fileOutput << ListData[i].donVi << ",";
 		fileOutput << ListData[i].chucVu;
 		if (i != ListSize - 1) {
 			fileOutput << endl;
@@ -472,9 +472,9 @@ void readFile() {
 			fileInput >> nv.ngaySinh.thang;
 			fileInput >> nv.ngaySinh.nam;		
 
-			fileInput.getline(nv.ho, 30,'$');
-			fileInput.getline(nv.ten, 30, '$');
-			fileInput.getline(nv.donVi, 30, '$');
+			fileInput.getline(nv.ho, 30,',');
+			fileInput.getline(nv.ten, 30, ',');
+			fileInput.getline(nv.donVi, 30, ',');
 			fileInput.getline(nv.chucVu, 30);
 			
 			addNhanVien(nv);
